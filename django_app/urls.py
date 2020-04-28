@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from evaluation.views import proba
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('predict/', proba)
+
 ]
