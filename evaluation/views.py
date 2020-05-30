@@ -16,6 +16,13 @@ import os
 from os import listdir
 from os.path import isfile, join
 import re
+import subprocess
+
+
+le = preprocessing.LabelEncoder()
+character_curated = [ord(c) for c in '!%&()*+-./:;<=>[]{|}']
+ids = le.fit_transform(character_curated)
+
 
 def sorted_alphanumeric(data):
     convert = lambda text: int(text) if text.isdigit() else text.lower()
@@ -102,9 +109,6 @@ def proba(request):
     preprocess_images(filename, folder + '\\\\' + 'symbol_', '.jpeg', arrays, 0)
     edit_created_images(folder, folder)
 
-    le = preprocessing.LabelEncoder()
-    character_curated = [ord(c) for c in '!%&()*+-./:;<=>[]{|}']
-    ids = le.fit_transform(character_curated)
 
     batch = np.empty((0, 128, 80, 1))
     i = 0
@@ -112,9 +116,8 @@ def proba(request):
     file_names = listdir(folder)
     file_names = sorted_alphanumeric(file_names)
 
-    print(loaded_model.summary())
     for file_name in file_names:
-        print(file_name)
+        # print(file_name)
         img = image.load_img(folder + "\\\\" + file_name, color_mode="grayscale")
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
@@ -129,5 +132,42 @@ def proba(request):
     print(classes)
     print(classes_means)
     a = [1, 2, 3]
+    rez = le.inverse_transform(classes)
     # response = JsonResponse(a)
-    return JsonResponse(data={'classes': classes.tolist(), 'means': classes_means.tolist()}, safe=False)
+    return JsonResponse(data={'classes': rez.tolist(), 'means': classes_means.tolist()}, safe=False)
+
+def has_error(res_compile):
+    lines = res_compile.split('\n')
+    for line in lines:
+        if line.find('error') > -1:
+            return True
+    return False
+
+@api_view(['POST'])
+@csrf_exempt
+def run(request):
+    data = request.data
+    text = data['text']
+    with open('main.cpp', 'w') as file:
+        file.write(text)
+    command = 'g++ main.cpp -o main.o'
+    command2 = '.\main.o'
+    command3 = 'del main.cpp'
+    command4 = 'del main.o'
+    res_compile = ''
+    res_run = ''
+    p = subprocess.Popen(command.split(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    for line in p.stdout.readlines():
+        res_compile += line.decode("utf-8") + '\n'
+    retval = p.wait()
+    if has_error(res_compile):
+        return JsonResponse(data={'text': res_compile}, safe=False)
+
+    p2 = subprocess.Popen(command2.split(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    for line in p2.stdout.readlines():
+        res_run += line.decode("utf-8") + '\n'
+    retval2 = p2.wait()
+
+    p3 = subprocess.Popen(command3.split(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    p4 = subprocess.Popen(command4.split(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    return JsonResponse(data={'text': res_run}, safe=False)

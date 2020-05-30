@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from evaluation.views import proba
+from evaluation.views import proba, run
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('predict/', proba)
+    path('predict/', proba),
+    path('compile/', run)
 
 ]

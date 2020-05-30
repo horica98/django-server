@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4ec976c9-004c-436b-980e-8bf3df1dd7a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_app/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/current_directory_name" beforeDir="false" afterPath="$PROJECT_DIR$/current_directory_name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/views.py" afterDir="false" />
     </list>
@@ -23,7 +23,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/An_3_Semestrul_1/proiect_colectiv/datacenter-manager/backend" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -92,6 +92,33 @@
       <workItem from="1587993393484" duration="275000" />
       <workItem from="1587993819689" duration="3195000" />
       <workItem from="1588005992367" duration="76000" />
+      <workItem from="1588061606263" duration="191000" />
+      <workItem from="1588244788116" duration="1929000" />
+      <workItem from="1588322770945" duration="9000" />
+      <workItem from="1588602788086" duration="259000" />
+      <workItem from="1588674212258" duration="15000" />
+      <workItem from="1588750194554" duration="239000" />
+      <workItem from="1588750792098" duration="813000" />
+      <workItem from="1588845611393" duration="600000" />
+      <workItem from="1588852058514" duration="20000" />
+      <workItem from="1588945254287" duration="6085000" />
+      <workItem from="1589098974159" duration="2314000" />
+      <workItem from="1589129139521" duration="1260000" />
+      <workItem from="1589364657656" duration="1942000" />
+      <workItem from="1589367492150" duration="657000" />
+      <workItem from="1589461941715" duration="4854000" />
+      <workItem from="1589785001003" duration="2266000" />
+      <workItem from="1589881815598" duration="17000" />
+      <workItem from="1590243904758" duration="532000" />
+      <workItem from="1590321727804" duration="14000" />
+      <workItem from="1590420365405" duration="1321000" />
+      <workItem from="1590423972398" duration="555000" />
+      <workItem from="1590573437644" duration="1691000" />
+      <workItem from="1590595142127" duration="1289000" />
+      <workItem from="1590645728717" duration="3121000" />
+      <workItem from="1590739320159" duration="2502000" />
+      <workItem from="1590851907724" duration="24000" />
+      <workItem from="1590856097389" duration="3169000" />
     </task>
     <servers />
   </component>
@@ -116,12 +143,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluation/views.py</url>
-          <line>132</line>
+          <line>136</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluation/views.py</url>
-          <line>96</line>
+          <line>103</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
